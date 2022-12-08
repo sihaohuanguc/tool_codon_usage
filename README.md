@@ -2,7 +2,6 @@
 This repo is a small tool used for generating the codon usage count table for mouse.
 
 # Package version
-Python 3.8.8
 
 | Software | Version    |
 | :---:   | :---: |
