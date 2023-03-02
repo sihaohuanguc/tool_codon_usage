@@ -29,7 +29,8 @@ def generate_codon_table(in_file,out_file):
             for line in f:
                 if line[0]==">":
                     out_line=line.strip(">").strip("\n").split("_")[:4] # "gene" to "strand"
-                elif line[:3]=="ATG":  # we assume that all protein start with ATG
+                # elif line[:3]=="ATG":  # we assume that all protein start with ATG
+                else:
                     line=line.strip("\n")
                     codons=[line[i:(i+3)] for i in range(0,len(line),3)]
                     if len(codons[-1])<3:

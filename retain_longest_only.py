@@ -18,8 +18,11 @@ def retain_longest_only(in_file,out_file):
                                 out_f.write(item)
                             len_list=[]
                             info_list=[]
-                    elif elements[2]=="transcript":
+                    elif elements[2]=="transcript" and elements[8].split(";")[6].split("=")[1]=="protein_coding": # yes there are transcripts for protein coding genes that are not protein coding transcripts
                         len_list.append(int(elements[4])-int(elements[3]))
+                        info_list.append([line])
+                    elif elements[2]=="transcript" and elements[8].split(";")[6].split("=")[1]!="protein_coding": # yes there are transcripts for protein coding genes that are not protein coding transcripts
+                        len_list.append(-100) # it's easy to make it never the longest, just asign a length with is < 0
                         info_list.append([line])
                     else:
                         info_list[-1].append(line)
