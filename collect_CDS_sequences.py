@@ -41,7 +41,7 @@ def collect_CDS_sequences(in_annotate,in_ref,out_annotate):
         for key in dict1.keys():
             coding_strand=""
             if "CDS" in dict1[key].keys():
-                gene_ID=dict1[key]["gene_ID"]
+                gene_name=dict1[key]["gene_name"]
                 chrom=dict1[key]["chrom"]
                 strand=dict1[key]["strand"]
                 for pairs in dict1[key]["CDS"]:  # the indexes are all based on the forward strand
@@ -51,7 +51,7 @@ def collect_CDS_sequences(in_annotate,in_ref,out_annotate):
                         fragment=rev_comp(all_ref[chrom][(pairs[0]-1):(pairs[1])])
                     coding_strand+=fragment
                 # print(coding_strand,dict1[key],key)      
-                out_f.write(f">{key}_{gene_ID}_{chrom}_{strand}_CDS_{len(coding_strand)}\n")
+                out_f.write(f">{key}_{gene_name}_{chrom}_{strand}_CDS_{len(coding_strand)}\n")
                 out_f.write(coding_strand+"\n")
 
 

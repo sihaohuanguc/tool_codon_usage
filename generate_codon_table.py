@@ -22,7 +22,7 @@ def generate_codon_table(in_file,out_file):
 
     with open(out_file,"w+") as out_f:
         writer=csv.writer(out_f)
-        first_line=["gene","gene_ID","chrom","strand","length_aa"]
+        first_line=["gene_ID","gene_name","chrom","strand","length_aa"]
         first_line.extend(codon_list_for_output)
         writer.writerow(first_line)
         with open(in_file,"r") as f:

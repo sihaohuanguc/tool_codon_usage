@@ -30,7 +30,7 @@ def main():
     generate_codon_table("CDS.fa","CDS.csv")
     remove_stop("CDS.csv",out_file)
 
-    os.system("rm temp.gff3 range.pkl CDS.fa CDS.csv")
+    # os.system("rm temp.gff3 range.pkl CDS.fa CDS.csv")
 
 if __name__ == "__main__":
     main()

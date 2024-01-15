@@ -18,11 +18,11 @@ def collect_region_range(in_file,out_file):
                     for item in infos:
                         temp_dict[item.split("=")[0]]=item.split("=")[1]
 
-                    transcript_ID=temp_dict["gene_name"] # it's actually gene name now
+                    transcript_ID=temp_dict["gene_id"].split(".")[0] # it's actually gene name now
 
                     if elements[2]=="transcript":
                         dict1[transcript_ID]={}
-                        dict1[transcript_ID]["gene_ID"]=temp_dict["gene_id"].split(".")[0]
+                        dict1[transcript_ID]["gene_name"]=temp_dict["gene_name"]
                         dict1[transcript_ID]["strand"]=elements[6]
                         dict1[transcript_ID]["chrom"]=elements[0]
                     elif elements[2] in ["CDS"]:
